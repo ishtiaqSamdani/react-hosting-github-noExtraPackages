@@ -84,4 +84,8 @@ body:has(.dark-mode) {
   .nav-item {
     margin-bottom: 0;
   }
+
+  .dark-mode .nav-item {
+    margin-bottom: 0px;
+  }
 }
