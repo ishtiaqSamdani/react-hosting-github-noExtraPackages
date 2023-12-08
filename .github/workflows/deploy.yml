@@ -44,8 +44,20 @@ jobs:
 
       - name: install the dependencies
         if: steps.cache.outputs.cache-hit!=true
-
         run: npm install
+
+      - name: run npm eject
+        run: echo y | npm run eject
+
+      - name: replace static/js/ with "" in webpack.config.js
+        run: sed -i 's/static\/js\///g' webpack.config.js
+
+      - name: replace static/css/ with "" in webpack.config.js
+        run: sed -i 's/static\/css\///g' webpack.config.js
+
+      - name: replace static/media/ with "" in webpack.config.js
+        run: sed -i 's/static\/media\///g' webpack.config.js
+
       #   - name: create the .env file
       #     run: echo "${{ secrets.FRONTEND_ENV }}" > .env
       - name: create the build folder
