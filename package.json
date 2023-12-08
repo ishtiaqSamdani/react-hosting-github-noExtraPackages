@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": ".",
+  "homepage": "/react-hosting-github-noExtraPackages/",
   "eslintConfig": {
     "extends": [
       "react-app",
