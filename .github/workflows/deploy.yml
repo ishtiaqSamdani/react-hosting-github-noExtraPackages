@@ -26,7 +26,6 @@ jobs:
 
       - name: Build
         run: npm run build
-
       - name: git add everything inside build folder
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -34,8 +33,6 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git checkout -b static  
           git pull origin static
-        #   delete everything execpt build folder
-            find . -maxdepth 1 ! -name 'build' ! -name '.git' ! -name '.' -exec rm -rf {} +
           git add -f build/*
           git commit -m "build ${{ github.run_number}}"   
           git push origin static
