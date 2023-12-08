@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react"; // Import useState hook
 import "./App.css";
 import Home from "./components/Home";
@@ -9,7 +9,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(true); // Initialize darkMode state
 
   return (
-    <Router>
+    <>
       <nav className={`navbar ${darkMode ? "dark-mode" : ""}`}>
         <ul className="nav-list">
           <li className="nav-item">
@@ -43,7 +43,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-    </Router>
+    </>
   );
 }
 
