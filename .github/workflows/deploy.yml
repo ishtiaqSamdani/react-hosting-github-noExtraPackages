@@ -34,7 +34,8 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git checkout -b static
           git rm -rf .
-
           find build -exec git add -f {} \;  
           git commit -m "build ${{ github.run_number}}"   
           git push origin static
+          git stash
+          ls -a
