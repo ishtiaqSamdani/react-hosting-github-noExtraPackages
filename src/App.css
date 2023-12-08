@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+body:has(.dark-mode) {
+  background-color: #000; /* Set the background color to black for the whole page in dark mode */
+  color: #fff; /* Set the text color to white for the whole page in dark mode */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark-mode.navbar {
+  background-color: #333; /* Set the background color to dark gray for the navbar in dark mode */
+  color: #fff; /* Set the text color to white for the navbar in dark mode */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dark-mode .nav-link {
+  color: #fff; /* Set the text color to white for the nav links in dark mode */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dark-mode .toggle-button {
+  background-color: #555; /* Set the background color to dark gray for the toggle button in dark mode */
+  color: #fff; /* Set the text color to white for the toggle button in dark mode */
+}
+
+.dark-mode .toggle-button:hover {
+  background-color: #777; /* Set the background color to light gray for the toggle button on hover in dark mode */
+}
+
+.dark-mode .nav-list {
+  background-color: #333; /* Set the background color to dark gray for the nav list in dark mode */
+}
+
+.dark-mode .nav-item {
+  margin-bottom: 10px; /* Set the margin bottom to 10px for the nav items in dark mode */
+}
+
+.dark-mode .nav-link {
+  color: #fff; /* Set the text color to white for the nav links in dark mode */
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.nav-list {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-item {
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+}
+
+/* Button styles with animation */
+.toggle-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #555;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-item {
+    margin-bottom: 0;
   }
 }
