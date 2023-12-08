@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-
 permissions:
   contents: write
   pages: write
   id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,21 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: cache node modules
-        uses: actions/cache@v3
-        id: cache
-        with:
-          path: frontend/node_modules
-          key: ${{ runner.os }}-frontend-node_modules-${{ hashFiles('frontend/package.json') }}
-
-      - name: setup node version
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: 18
-
-      - name: install the dependencies
-        if: steps.cache.outputs.cache-hit!=true
-        run: npm install
 
       - name: Install dependencies
         run: npm install
@@ -40,23 +27,15 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create and switch to static branch
+      - name: git add everything inside build folder
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-
-          git checkout -b static
-          git push origin static
-
-      - name: Move build files to root
-        run: |
-          mv build/* .
-          rm -r build
-
-      - name: Commit and push static files
-        run: |
-          git add .
+          git checkout -b static  
           git pull origin static
-          git commit -m "Add static files"
+        #   delete everything execpt build folder
+            find . -maxdepth 1 ! -name 'build' ! -name '.git' ! -name '.' -exec rm -rf {} +
+          git add -f build/*
+          git commit -m "build ${{ github.run_number}}"   
           git push origin static
