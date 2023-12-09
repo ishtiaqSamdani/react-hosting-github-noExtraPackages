@@ -16,12 +16,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: cache node modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-frontend-node_modules-${{ hashFiles('frontend/package.json') }}
+
+      - name: setup node version
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: install the dependencies
+        if: steps.cache.outputs.cache-hit!=true
+
         run: npm install
 
       - name: Build
