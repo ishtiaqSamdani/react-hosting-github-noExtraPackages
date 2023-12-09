@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.e37313dd.css",
-    "main.js": "./static/js/main.718f2e2f.js",
-    "static/js/787.277c2add.chunk.js": "./static/js/787.277c2add.chunk.js",
-    "index.html": "./index.html",
-    "main.e37313dd.css.map": "./static/css/main.e37313dd.css.map",
-    "main.718f2e2f.js.map": "./static/js/main.718f2e2f.js.map",
-    "787.277c2add.chunk.js.map": "./static/js/787.277c2add.chunk.js.map"
+    "main.css": "/react-hosting-github-noExtraPackages/static/css/main.e37313dd.css",
+    "main.js": "/react-hosting-github-noExtraPackages/static/js/main.af901473.js",
+    "static/js/787.277c2add.chunk.js": "/react-hosting-github-noExtraPackages/static/js/787.277c2add.chunk.js",
+    "index.html": "/react-hosting-github-noExtraPackages/index.html",
+    "main.e37313dd.css.map": "/react-hosting-github-noExtraPackages/static/css/main.e37313dd.css.map",
+    "main.af901473.js.map": "/react-hosting-github-noExtraPackages/static/js/main.af901473.js.map",
+    "787.277c2add.chunk.js.map": "/react-hosting-github-noExtraPackages/static/js/787.277c2add.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e37313dd.css",
-    "static/js/main.718f2e2f.js"
+    "static/js/main.af901473.js"
   ]
 }
